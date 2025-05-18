@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Time Tracker</h1>
+    <div class="tabs">
+        <div class="tab active" data-tab="projects-tab">Projects</div>
+        <div class="tab" data-tab="timer-tab">Timer</div>
+        <div class="tab" data-tab="analytics-tab">Analytics</div>
+    </div>
+    <div class="tab-contents">
+        <div class="tab-content active" id="projects-tab">
+            <h2>Projects</h2>
+            <ul id="project-list"></ul>
+            <h3>Add Project</h3>
+            <form id="add-project-form">
+                <input type="text" id="title" placeholder="Title" required />
+                <input type="text" id="description" placeholder="Description" />
+                <label><input type="checkbox" id="public" /> Public</label>
+                <button type="submit">Add Project</button>
+            </form>
+        </div>
+        <div class="tab-content" id="timer-tab">
+            <h2>Clock In / Clock Out</h2>
+            <div id="timer-controls">
+                <select id="project-select"></select>
+                <button id="clock-in">Clock In</button>
+            </div>
+            <div id="milestones-section">
+                <h3>Milestones</h3>
+                <div id="milestones-container">
+                    <ul id="milestones-list"></ul>
+                </div>
+                <h4>Add Milestone</h4>
+                <form id="add-milestone-form">
+                    <input type="text" id="ms-title" placeholder="Title" required />
+                    <input type="text" id="ms-description" placeholder="Description" />
+                    <select id="ms-significance">
+                        <option value="Landmark">Landmark</option>
+                        <option value="Major">Major</option>
+                        <option value="Incremental" selected>Incremental</option>
+                    </select>
+                    <label><input type="checkbox" id="ms-public" /> Public</label>
+                    <button type="submit">Add Milestone</button>
+                </form>
+            </div> <!-- end milestones-section -->
+            <div id="timer-status" style="display:none; margin-top:10px;">
+                <span id="timer-project-title"></span>
+                <span id="live-timer">0h 0m 0s</span>
+                <button id="clock-out">Clock Out</button>
+            </div>
+        </div>
+        <div class="tab-content" id="analytics-tab">
+            <h2>Analytics</h2>
+            <canvas id="analytics-chart"></canvas>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

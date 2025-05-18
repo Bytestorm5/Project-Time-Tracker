@@ -1,0 +1,5 @@
+pywebview
+pymongo[srv]
+python-dotenv
+qtpy
+PySide6
