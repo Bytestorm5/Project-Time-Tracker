@@ -1,37 +1,29 @@
-# Time Tracker
+# Activity Tracker
 
-A desktop time tracking application built with pywebview and MongoDB.
+A local Windows application that automatically detects what you're doing and logs activities to MongoDB.
 
 ## Features
-- Define new projects (title, optional description, public flag)
-- Clock in and clock out of projects
-- View analytics of time spent per project
+- Detect active application and context (browser tabs, Discord server, VS Code folder, WSL path).
+- Detect inactivity based on idle time.
+- Store all activity events in MongoDB using the `MONGO_URI` environment variable.
+- Basic clustering of activities using K-Means to infer categories.
 
 ## Setup
-1. Create a virtual environment:
+1. Create and activate a virtual environment
    ```bash
    python3 -m venv venv
+   source venv/bin/activate  # On Windows use venv\Scripts\activate
    ```
-2. Activate the environment:
-   - On Linux/macOS:
-     ```bash
-     source venv/bin/activate
-     ```
-   - On Windows:
-     ```powershell
-     venv\\Scripts\\activate
-     ```
-3. Install dependencies:
+2. Install dependencies
    ```bash
    pip install -r requirements.txt
    ```
-4. Create a `.env` file in the project root with your MongoDB connection string:
+3. Add a `.env` file with your MongoDB connection string
    ```text
    MONGO_URI=mongodb+srv://<username>:<password>@<cluster-url>/<dbname>?retryWrites=true&w=majority
    ```
 
 ## Run
-Ensure the virtual environment is activated and run:
 ```bash
-python main.py
+python tracker.py
 ```
