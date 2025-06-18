@@ -12,8 +12,6 @@ def main():
         raise SystemExit("MONGO_URI not set")
 
     monitor = ActivityMonitor(mongo_uri)
-    classifier = ActivityClassifier(monitor.col)
-    classifier.train()
     monitor.run()
 
 

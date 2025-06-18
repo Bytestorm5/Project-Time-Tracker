@@ -16,8 +16,8 @@ try:
 except ImportError:  # allow module to compile on non-Windows systems
     win32gui = win32process = win32api = win32con = win32ts = None
 
-IDLE_THRESHOLD = 300  # seconds
-POLL_INTERVAL = 5
+IDLE_THRESHOLD = 60  # seconds
+POLL_INTERVAL = 1
 
 @dataclass
 class Activity:
@@ -91,6 +91,7 @@ class ActivityMonitor:
             "details": activity.details,
             "start_time": datetime.utcnow(),
         }
+        print(self.current)
 
     def run(self):
         while True:
