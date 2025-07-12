@@ -52,7 +52,7 @@ class ActivityMonitor:
         except Exception:
             app = "unknown"
         title = win32gui.GetWindowText(hwnd)
-        details = self.extract_details(app, title)
+        details = title.strip()
         return Activity(app=app, title=title, details=details)
 
     def extract_details(self, app: str, title: str) -> Optional[str]:
